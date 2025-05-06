@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Sadece geliştirme modunda görünmemesi için N harfi (Next.js) */
+/* Geliştirme ortamındaki Next.js harfini gizler */
 @media (min-width: 0) {
   .next-devtools {
     display: none !important;
@@ -10,23 +10,30 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --border: #dddddd;
+  --muted: #f9f9f9;
+  --hover: #f1f1f1;
+  --accent: #0055ff;
+  --danger: #dc2626;
+  --success: #16a34a;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --border: #333333;
+    --muted: #1a1a1a;
+    --hover: #222222;
+    --accent: #3b82f6;
+    --danger: #f87171;
+    --success: #4ade80;
   }
 }
 
 body {
   background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
