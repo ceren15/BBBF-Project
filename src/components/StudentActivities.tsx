@@ -1,4 +1,4 @@
-"use client"; // Eğer Next.js 13+ app router kullanıyorsanız
+"use client";
 
 import { useState } from "react";
 
@@ -15,8 +15,7 @@ export default function StudentActivities() {
 
   const handleAddActivity = () => {
     if (!selectedInternship) return alert("Lütfen bir staj seçin.");
-    if (!newActivity.title || !newActivity.content)
-      return alert("Lütfen başlık ve içerik girin.");
+    if (!newActivity.title || !newActivity.content) return alert("Lütfen başlık ve içerik girin.");
 
     const updated = { ...activities };
     const current = updated[selectedInternship] || [];
@@ -37,14 +36,14 @@ export default function StudentActivities() {
   );
 
   return (
-    <div className="p-6 max-w-screen-xl mx-auto">
+    <div className="p-6 max-w-screen-xl mx-auto text-[var(--foreground)] bg-[var(--background)]">
       <h2 className="text-3xl font-bold mb-6">Öğrenci Aktiviteleri</h2>
 
       <div className="flex items-end gap-4 mb-6">
         <div className="flex flex-col w-full sm:w-auto">
           <label className="text-sm font-medium mb-3">Staj Seç:</label>
           <select
-            className="border rounded px-4 py-2 text-sm"
+            className="border border-[var(--border)] rounded px-4 py-2 text-sm bg-[var(--background)] text-[var(--foreground)]"
             value={selectedInternship || ""}
             onChange={(e) => setSelectedInternship(e.target.value)}
           >
@@ -68,17 +67,17 @@ export default function StudentActivities() {
       </div>
 
       {showForm && (
-        <div className="border rounded p-4 bg-gray-50 mb-6">
+        <div className="border border-[var(--border)] rounded p-4 bg-[var(--muted)] mb-6">
           <label className="block mb-1 text-sm">Başlık</label>
           <input
             type="text"
-            className="border w-full px-3 py-2 mb-3 text-sm"
+            className="border border-[var(--border)] w-full px-3 py-2 mb-3 text-sm bg-[var(--background)] text-[var(--foreground)]"
             value={newActivity.title}
             onChange={(e) => setNewActivity({ ...newActivity, title: e.target.value })}
           />
           <label className="block mb-1 text-sm">İçerik</label>
           <textarea
-            className="border w-full px-3 py-2 mb-3 text-sm"
+            className="border border-[var(--border)] w-full px-3 py-2 mb-3 text-sm bg-[var(--background)] text-[var(--foreground)]"
             value={newActivity.content}
             onChange={(e) => setNewActivity({ ...newActivity, content: e.target.value })}
           />
@@ -93,8 +92,8 @@ export default function StudentActivities() {
 
       {allActivities.length > 0 && (
         <div className="overflow-x-auto">
-          <table className="w-full bg-white shadow-sm rounded text-left border border-gray-100">
-            <thead className="bg-gray-100 text-sm text-gray-700">
+          <table className="w-full bg-[var(--background)] shadow-sm rounded text-left border border-[var(--border)]">
+            <thead className="bg-[var(--muted)] text-sm text-[var(--foreground)]">
               <tr>
                 <th className="px-4 py-2">Staj</th>
                 <th className="px-4 py-2">Başlık</th>
@@ -103,8 +102,8 @@ export default function StudentActivities() {
             </thead>
             <tbody>
               {allActivities.map((act, idx) => (
-                <tr key={idx} className="hover:bg-gray-50 text-sm">
-                  <td className="px-4 py-2 font-medium text-black">{act.internshipName}</td>
+                <tr key={idx} className="hover:bg-[var(--hover)] text-sm">
+                  <td className="px-4 py-2 font-medium">{act.internshipName}</td>
                   <td className="px-4 py-2">{act.title}</td>
                   <td className="px-4 py-2">{act.content}</td>
                 </tr>
