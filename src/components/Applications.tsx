@@ -26,12 +26,12 @@ export default function Applications() {
   const [applications, setApplications] = useState(mockApplications);
 
   return (
-    <div className="p-6 max-w-screen-xl mx-auto">
+    <div className="p-6 max-w-screen-xl mx-auto text-[var(--foreground)] bg-[var(--background)]">
       <h1 className="text-3xl font-bold mb-6">Staj Başvuruları</h1>
-      
+
       <div className="overflow-x-auto">
-        <table className="w-full border border-gray-200 shadow-sm text-sm text-left bg-white">
-          <thead className="bg-gray-100 text-gray-700">
+        <table className="w-full border border-[var(--border)] shadow-sm text-sm text-left bg-[var(--muted)]">
+          <thead className="bg-[var(--muted)] text-[var(--foreground)]">
             <tr>
               <th className="px-4 py-3">Öğrenci</th>
               <th className="px-4 py-3">Şirket Bilgileri</th>
@@ -44,7 +44,7 @@ export default function Applications() {
           </thead>
           <tbody>
             {applications.map((app) => (
-              <tr key={app.id} className="hover:bg-gray-50 border-t">
+              <tr key={app.id} className="hover:bg-[var(--hover)] border-t border-[var(--border)]">
                 <td className="px-4 py-2">{app.student}</td>
                 <td className="px-4 py-2">{app.company}</td>
                 <td className="px-4 py-2">{app.internshipTerm}</td>
@@ -52,8 +52,8 @@ export default function Applications() {
                 <td className="px-4 py-2">{app.status}</td>
                 <td className="px-4 py-2">{app.feedback}</td>
                 <td className="px-4 py-2">
-                  <button className="text-blue-600 hover:underline text-sm mr-2">Düzenle</button>
-                  <button className="text-red-600 hover:underline text-sm">Sil</button>
+                  <button className="text-blue-600 dark:text-blue-400 hover:underline text-sm mr-2">Düzenle</button>
+                  <button className="text-red-600 dark:text-red-400 hover:underline text-sm">Sil</button>
                 </td>
               </tr>
             ))}
